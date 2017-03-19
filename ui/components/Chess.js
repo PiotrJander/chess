@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import knight from '../images/kdt45.png'
+// import knight from '../images/kdt45.png'
 
 
 export class Chess extends React.Component {
@@ -22,7 +22,7 @@ export class Chess extends React.Component {
             <div style={styles.board}>
                 {_.range(64).map(i => (
                     <div key={i} style={{...styles.tile, backgroundColor: isBlack(i) ? colors.blackTile : colors.whiteTile}}>
-                        <img src={knight} alt="" style={{width: "100%"}} />
+
                     </div>
                 ))}
             </div>
@@ -31,7 +31,7 @@ export class Chess extends React.Component {
 }
 
 
-/*
+/*  <img src={knight} alt="" style={{width: "100%"}} />
 * Ok now let's place some some figures on the board
 *
 * Then we need an interface to say move <pieceId> from <fieldId> to <fieldId>
@@ -40,7 +40,30 @@ export class Chess extends React.Component {
 *
 * Maybe just request: I made this move, what is your move?
 *
+* Ok great now we know how to display
 *
+* We keep the protocol simple and assume that we can only say move <pieceId> from <fieldId> to <fieldId> .
+*
+* Therefore the UI must know the initial pieces layout. Also field naming and piece naming should be consistent.
+*
+* This is time for us to use redux. We keep the board state in redux and display it.
+*
+* Piece naming black_pawn_1, white_pawn_2 etc
+*
+* Field naming: a3 b6 etc
+*
+* For now we assume ui makes no moves, only reads moves from the server
+*
+* Therefore the state could be an object mapping field names to piece names
+*
+* We also need a mapping from piece id to piece (color / type)
+*
+* We might want to download the pieces for now
+*
+* for piece in "kqrbnp"
+*   for color in "dl"
+*       https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Chess_<{}{}>t45.svg/240px-Chess_{}{}t45.svg.png
+*       and save as {}{}.png
 * */
 
 
