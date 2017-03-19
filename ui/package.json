@@ -27,6 +27,7 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.2.1",
     "redux": "^3.2.1",
+    "redux-actions": "^2.0.1",
     "stack-source-map": "^1.0.4"
   },
   "devDependencies": {
