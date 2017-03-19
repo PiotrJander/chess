@@ -1,14 +1,14 @@
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './containers/App'
-import configureStore from './store/configureStore'
+// import { Provider } from 'react-redux'
+// import App from './containers/App'
+// import configureStore from './store/configureStore'
 // import 'todomvc-app-css/index.css'
 import 'normalize.css/normalize.css'
-import {CommentList} from './components/comments'
+import {Chess} from './components/Chess'
 
-const store = configureStore()
+// const store = configureStore()
 
 // render(
 //   <Provider store={store}>
@@ -19,7 +19,7 @@ const store = configureStore()
 
 render(
   <div>
-    <CommentList />
+    <Chess />
   </div>,
   document.getElementById('root')
 )
