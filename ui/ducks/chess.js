@@ -14,7 +14,7 @@ const FAIL_NEXT_MOVE = prefix + 'FAIL_NEXT_MOVE'
 // Reducer
 export default function reducer(
     state = {
-        board: new Array(64),
+        board: (new Array(64)).fill(null),
         message: ''
     },
     action = {}

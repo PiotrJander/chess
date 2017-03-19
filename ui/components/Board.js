@@ -6,25 +6,29 @@ export class Board extends React.Component {
 
     render() {
 
-        console.log(this.props.board[3])
-
-        const isBlack = i => {
-            const row = Math.floor(i / 8);
-            const col = i % 8;
-            return row % 2 == col % 2
-        }
-
         return (
             <div style={styles.board}>
-                {_.range(64).map(i => (
-                    <div key={i} style={{...styles.tile, backgroundColor: isBlack(i) ? colors.blackTile : colors.whiteTile}}>
-
+                {this.props.board.map((piece, i) => (
+                    <div key={i} style={{...styles.tile, backgroundColor: tileColor(i)}}>
+                        {piece ? <img src={pieceImage(piece)} style={styles.pieceImage} /> : null}
                     </div>
                 ))}
             </div>
         )
     }
 }
+
+const pieceImage = s => {
+    return require(`../svg/Chess_${s}t45.svg`)
+}
+
+const isBlack = i => {
+    const row = Math.floor(i / 8);
+    const col = i % 8;
+    return row % 2 == col % 2
+}
+
+const tileColor = i => isBlack(i) ? colors.blackTile : colors.whiteTile
 
 
 const colors = {
@@ -43,5 +47,8 @@ const styles = {
     tile: {
         width: "100px",
         height: "100px"
+    },
+    pieceImage: {
+        width: "100%"
     }
 }
