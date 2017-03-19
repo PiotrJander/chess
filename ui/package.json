@@ -43,6 +43,7 @@
     "cross-env": "^1.0.7",
     "expect": "^1.8.0",
     "express": "^4.13.3",
+    "file-loader": "^0.10.1",
     "flow-bin": "^0.27.0",
     "jsdom": "^5.6.1",
     "mocha": "^2.2.5",
@@ -51,6 +52,7 @@
     "react-addons-test-utils": "^0.14.7",
     "style-loader": "^0.12.3",
     "todomvc-app-css": "^2.0.1",
+    "url-loader": "^0.5.8",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.9.1"

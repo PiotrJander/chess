@@ -28,7 +28,16 @@ module.exports = {
         test: /\.css?$/,
         loaders: [ 'style', 'raw' ],
         include: __dirname
-      }
+      },
+        {
+            test: /\.(jpg|png|svg)$/,
+            loader: 'url-loader',
+            exclude: /node_modules/,
+            include: __dirname,
+            options: {
+                limit: 25000,
+            },
+        }
     ]
   }
 }

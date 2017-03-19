@@ -1,5 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
+import knight from '../images/kdt45.png'
 
 
 export class Chess extends React.Component {
@@ -21,7 +22,7 @@ export class Chess extends React.Component {
             <div style={styles.board}>
                 {_.range(64).map(i => (
                     <div key={i} style={{...styles.tile, backgroundColor: isBlack(i) ? colors.blackTile : colors.whiteTile}}>
-
+                        <img src={knight} alt="" style={{width: "100%"}} />
                     </div>
                 ))}
             </div>
@@ -34,6 +35,12 @@ export class Chess extends React.Component {
 * Ok now let's place some some figures on the board
 *
 * Then we need an interface to say move <pieceId> from <fieldId> to <fieldId>
+*
+* Maybe we don't need websockets.
+*
+* Maybe just request: I made this move, what is your move?
+*
+*
 * */
 
 
