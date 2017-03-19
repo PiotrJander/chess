@@ -4,25 +4,45 @@ import { createAction } from 'redux-actions';
 const prefix = "chess/"
 
 // Actions
-const NEW_GAME = prefix + 'NEW_GAME'
-const NEXT_MOVE = prefix + 'NEXT_MOVE'
+const REQUEST_NEW_GAME = prefix + 'REQUEST_NEW_GAME'
+const RECEIVE_NEW_GAME = prefix + 'RECEIVE_NEW_GAME'
+const FAIL_NEW_GAME = prefix + 'FAIL_NEW_GAME'
+const REQUEST_NEXT_MOVE = prefix + 'REQUEST_NEXT_MOVE'
+const RECEIVE_NEXT_MOVE = prefix + 'RECEIVE_NEXT_MOVE'
+const FAIL_NEXT_MOVE = prefix + 'FAIL_NEXT_MOVE'
 
 // Reducer
 export default function reducer(
     state = {
-        board: new Array(64)
+        board: new Array(64),
+        message: ''
     },
     action = {}
 ) {
     switch (action.type) {
-        case NEW_GAME:
-        case NEXT_MOVE:
-            return {...state, board: action.payload}
+        case REQUEST_NEW_GAME:
+            return {...state, message: "Waiting for the engine"}
+        case RECEIVE_NEW_GAME:
+            return {...state, board: action.payload, message: ''}
+        case FAIL_NEW_GAME:
+            return {...state, message: 'Communication with the engine failed'}
         default:
             return state
     }
 }
 
 // Action Creators
-export const newGame = createAction(NEW_GAME)
-export const nextMove = createAction(NEXT_MOVE)
+const requestNewGame = createAction(REQUEST_NEW_GAME)
+const receiveNewGame = createAction(RECEIVE_NEW_GAME)
+const failNewGame = createAction(FAIL_NEW_GAME)
+const requestNextMove = createAction(REQUEST_NEXT_MOVE)
+const receiveNextMove = createAction(RECEIVE_NEXT_MOVE)
+const failNextMove = createAction(FAIL_NEXT_MOVE)
+
+export const newGameAction = () => dispatch => {
+    dispatch(requestNewGame())
+    return fetch('http://localhost:4567/new-game')
+        .then(response => response.json())
+        .then(payload => dispatch(receiveNewGame(payload)))
+        .catch(e => dispatch(failNewGame()))
+}

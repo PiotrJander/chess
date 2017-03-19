@@ -11,8 +11,9 @@ class Chess1 extends React.Component {
         return (
             <div style={styles.main}>
                 <p>
-                    <button onClick={p.newGame}>New game</button>
-                    <button onClick={p.nextMove}>Next move</button>
+                    <button onClick={p.newGameAction}>New game</button>
+                    <button onClick={p.nextMoveAction}>Next move</button>
+                    <span>{p.message}</span>
                 </p>
                 <Board board={p.board} />
             </div>
