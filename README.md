@@ -37,6 +37,7 @@ sudo apt-get install npm
 git clone .
 
 # built-in ssh, which will come in handy if you ever remote log in to the cloud or virtual machines
+ssh marcin-komputer  # we've got your private key hehehe
 ```
 
 Good luck!
