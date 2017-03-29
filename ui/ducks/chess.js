@@ -21,10 +21,13 @@ export default function reducer(
 ) {
     switch (action.type) {
         case REQUEST_NEW_GAME:
+        case REQUEST_NEXT_MOVE:
             return {...state, message: "Waiting for the engine"}
         case RECEIVE_NEW_GAME:
+        case RECEIVE_NEXT_MOVE:
             return {...state, board: action.payload, message: ''}
         case FAIL_NEW_GAME:
+        case FAIL_NEXT_MOVE:
             return {...state, message: 'Communication with the engine failed'}
         default:
             return state
@@ -45,4 +48,12 @@ export const newGameAction = () => dispatch => {
         .then(response => response.json())
         .then(payload => dispatch(receiveNewGame(payload)))
         .catch(e => dispatch(failNewGame()))
+}
+
+export const nextMoveAction = () => dispatch => {
+    dispatch(requestNextMove())
+    return fetch('http://localhost:4567/next-move')
+        .then(response => response.json())
+        .then(payload => dispatch(receiveNextMove(payload)))
+        .catch(e => dispatch(failNextMove()))
 }

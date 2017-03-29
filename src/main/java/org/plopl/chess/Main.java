@@ -3,6 +3,7 @@ package org.plopl.chess;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.stream.IntStream;
+import java.util.Random;
 
 import static spark.Spark.*;
 
@@ -25,8 +26,24 @@ public class Main {
         });
 
         get("/next-move", (req, res) -> {
-            // TODO shuffle the game state array here
-            return "";
+            String[] shuffled = shuffle(b);
+            res.type("application/json");
+            res.header("Access-Control-Allow-Origin", "*");
+            return mapper.writer().writeValueAsString(shuffled);
         });
+    }
+
+    private static String[] shuffle(String[] b) {
+        Random random = new Random();
+        String[] shuffle = b.clone();
+        IntStream.range(0, 32).forEach(i -> {
+            int j = random.nextInt(64);
+            int k = random.nextInt(64);
+            String s = shuffle[j];
+            String t = shuffle[k];
+            shuffle[j] = t;
+            shuffle[k] = s;
+        });
+        return shuffle;
     }
 }
