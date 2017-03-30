@@ -1,10 +1,18 @@
-import React from 'react'
-import {Board} from './Board'
-import {connect} from 'react-redux'
-import * as actions from '../ducks/chess'
+import React from "react"
+import {Board} from "./Board"
+import {connect} from "react-redux"
+import * as actions from "../ducks/chess"
+import {Piece} from "../types/index"
 
 
 class Chess1 extends React.Component {
+
+    props: {
+        board: Piece[][],
+        message: string,
+        newGameAction: Function,
+        nextMoveAction: Function
+    }
 
     render() {
         const p = this.props
@@ -22,7 +30,7 @@ class Chess1 extends React.Component {
 }
 
 export const Chess = connect(
-    s => ({board: s.chess.board}),
+    s => s.chess,
     actions
 )(Chess1)
 

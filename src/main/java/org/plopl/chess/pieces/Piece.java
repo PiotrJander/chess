@@ -48,7 +48,7 @@ abstract public class Piece implements JsonSerializable {
     @Override
     public void serialize(JsonGenerator gen, SerializerProvider serializers) throws IOException {
         gen.writeStartObject();
-        gen.writeStringField("type", getClass().getName());
+        gen.writeStringField("type", getClass().getSimpleName());
         gen.writeStringField("color", color.name());
         gen.writeStringField("code", letter() + color.letter());
         gen.writeNumberField("id", id);

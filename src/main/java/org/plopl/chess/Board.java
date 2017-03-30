@@ -24,4 +24,8 @@ public class Board {
     public void set(Field field, Piece piece) {
         set(field.row, field.column, piece);
     }
+
+    public Piece[][] getBoard() {
+        return board;
+    }
 }

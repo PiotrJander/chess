@@ -13,7 +13,7 @@ public class King extends Piece {
 
     @Override
     String letter() {
-        return null;
+        return "k";
     }
 
     @Override
