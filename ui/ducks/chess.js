@@ -1,6 +1,5 @@
 import {createAction} from "redux-actions"
-import {Piece, Coor} from "../types/index"
-import {coorEquals} from "../utils/index"
+import {Piece, Move} from "../types/index"
 
 
 const prefix = "chess/"
@@ -13,12 +12,13 @@ const REQUEST_NEXT_MOVE = prefix + 'REQUEST_NEXT_MOVE'
 const RECEIVE_NEXT_MOVE = prefix + 'RECEIVE_NEXT_MOVE'
 const FAIL_NEXT_MOVE = prefix + 'FAIL_NEXT_MOVE'
 
-const TOGGLE_TILE_SELECTION = prefix + 'TOGGLE_TILE_SELECTION'
+const TOGGLE_PIECE_SELECTION = prefix + 'TOGGLE_PIECE_SELECTION'
 
 type State = {
     board: Piece[][],
+    validMoves: { [number]: Move[] },
     message: string,
-    selectedTile: ?Coor
+    selectedPieceId: ?number
 }
 
 type Action = {
@@ -30,7 +30,9 @@ type Action = {
 // Reducer
 export default function reducer(state: State = {
     board: (new Array(8)).fill((new Array(8)).fill(null)),
-        message: ''
+    message: '',
+    selectedPieceId: null,
+    validMoves: {}
     },
                                 action: Action = {}): State {
     switch (action.type) {
@@ -39,12 +41,22 @@ export default function reducer(state: State = {
             return {...state, message: "Waiting for the engine"}
         case RECEIVE_NEW_GAME:
         case RECEIVE_NEXT_MOVE:
-            return {...state, board: action.payload.board, message: ''}
+            const {board, validMoves} = action.payload
+            return {...state, board, validMoves, message: ''}
         case FAIL_NEW_GAME:
         case FAIL_NEXT_MOVE:
             return {...state, message: 'Communication with the engine failed'}
-        case TOGGLE_TILE_SELECTION:
-            return {...state, selectedTile: coorEquals(state.selectedTile, action.payload) ? null : action.payload}
+        case TOGGLE_PIECE_SELECTION:
+            const [i, j] = action.payload;
+            const pieceOnClickedTile = state.board[i][j]
+            if (pieceOnClickedTile && pieceOnClickedTile.color === "WHITE") {
+                return {
+                    ...state,
+                    selectedPieceId: state.selectedPieceId === pieceOnClickedTile.id ? null : pieceOnClickedTile.id
+                }
+            } else {
+                return state  // noop
+            }
         default:
             return state
     }
@@ -58,7 +70,7 @@ const requestNextMove = createAction(REQUEST_NEXT_MOVE)
 const receiveNextMove = createAction(RECEIVE_NEXT_MOVE)
 const failNextMove = createAction(FAIL_NEXT_MOVE)
 
-export const toggleTileSelectionAction = createAction(TOGGLE_TILE_SELECTION)
+export const toggleTileSelectionAction = createAction(TOGGLE_PIECE_SELECTION)
 
 export function newGameAction(): Function {
     return dispatch => {

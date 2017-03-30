@@ -1,5 +1,5 @@
 import React from "react"
-import {Piece} from "../types/index"
+import {Piece, Coor} from "../types/index"
 import {coorEquals} from "../utils/index"
 
 
@@ -7,7 +7,8 @@ export class Board extends React.Component {
 
     props: {
         board: Piece[][],
-        selectedTile: ?Coor,
+        moves: Coor[],
+        selectedPieceId: ?number,
         toggleTileSelectionAction: Function
     }
 
@@ -33,17 +34,22 @@ const Row = ({row, i, ...otherProps}) => {
 
 
 // const Tile = ({i, j, piece} : {i: number, j: number, piece: Piece}) => (
-const Tile = ({i, j, piece, selectedTile, toggleTileSelectionAction}) => {
+const Tile = ({i, j, piece, selectedPieceId, moves, toggleTileSelectionAction}) => {
     const tileStyles = {
         ...styles.tile,
         backgroundColor: tileColor(i, j),
-        border: coorEquals([i, j], selectedTile) ? "2px dotted" : "inherit"
+        border: (piece && piece.id === selectedPieceId) || isMove([i, j], moves) ? "2px dotted" : "inherit"
     }
     return (
         <div style={tileStyles} onClick={() => toggleTileSelectionAction([i, j])}>
             {piece ? <img src={pieceImage(piece.code)} style={styles.pieceImage}/> : null}
         </div>
     )
+}
+
+
+function isMove(coor: Coor, moves: Coor[]): boolean {
+    return moves.some(m => coorEquals(coor, m));
 }
 
 
@@ -72,7 +78,8 @@ const styles = {
     },
     tile: {
         width: "100px",
-        height: "100px"
+        height: "100px",
+        boxSizing: 'border-box'
     },
     pieceImage: {
         width: "100%"

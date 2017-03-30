@@ -6,3 +6,9 @@ export type Piece = {
 }
 
 export type Coor = [number, number]
+
+export type Move = {
+    pieceId: number,
+    from: Coor,
+    to: Coor
+}

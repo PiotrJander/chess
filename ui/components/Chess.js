@@ -9,8 +9,9 @@ class Chess1 extends React.Component {
 
     props: {
         board: Piece[][],
-        selectedTile: ?Coor,
+        selectedPieceId: ?number,
         message: string,
+        moves: Coor[],
         newGameAction: Function,
         nextMoveAction: Function,
         toggleTileSelectionAction: Function
@@ -32,7 +33,12 @@ class Chess1 extends React.Component {
 }
 
 export const Chess = connect(
-    s => s.chess,
+    s => ({
+        ...s.chess,
+        moves: s.chess.selectedPieceId
+            ? s.chess.validMoves[s.chess.selectedPieceId].map(move => move.to)
+            : []
+    }),
     actions
 )(Chess1)
 
