@@ -50,6 +50,10 @@ public class GameState {
         return board;
     }
 
+    public Color getWhosTurn() {
+        return whosTurn;
+    }
+
     Stream<Piece> allPiecesOfColor(Color c) {
         return Field.allFields().map(field -> board.get(field)).filter(Objects::nonNull).filter(c::pieceHasColor);
     }

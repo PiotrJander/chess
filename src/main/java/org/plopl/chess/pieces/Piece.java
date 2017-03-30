@@ -41,7 +41,7 @@ abstract public class Piece implements JsonSerializable {
      * {
      *  type: "King",
      *  color: "WHITE"
-     *  piece: "kl",
+     *  code: "kl",
      *  id: 2
      * }
      */
