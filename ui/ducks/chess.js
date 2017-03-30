@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import {createAction} from "redux-actions"
 
 
 const prefix = "chess/"
@@ -12,12 +12,14 @@ const RECEIVE_NEXT_MOVE = prefix + 'RECEIVE_NEXT_MOVE'
 const FAIL_NEXT_MOVE = prefix + 'FAIL_NEXT_MOVE'
 
 // Reducer
-export default function reducer(
-    state = {
+export default function reducer(state: {
+    board: any,
+    message: string
+} = {
         board: (new Array(64)).fill(null),
         message: ''
     },
-    action = {}
+                                action = {}
 ) {
     switch (action.type) {
         case REQUEST_NEW_GAME:

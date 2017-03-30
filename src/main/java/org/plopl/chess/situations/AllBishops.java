@@ -7,9 +7,10 @@ import org.plopl.chess.pieces.King;
 
 import java.util.stream.IntStream;
 
-public class AllBishops extends Situation {
-    @Override
-    public void make(Board board) {
+
+public class AllBishops {
+
+    static public void make(Board board) {
         // whites
         IntStream.range(0, 8).forEach(i -> board.set(0, i, new Bishop(Color.WHITE)));
         IntStream.range(0, 8).forEach(i -> board.set(1, i, new Bishop(Color.WHITE)));

@@ -3,9 +3,9 @@ package org.plopl.chess;
 import org.jetbrains.annotations.NotNull;
 import org.plopl.chess.pieces.King;
 import org.plopl.chess.pieces.Piece;
-import org.plopl.chess.situations.Situation;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,9 +19,16 @@ public class GameState {
 
     private Move lastMove;
 
-    public GameState(Situation situation) {
+    /**
+     * This constructor takes the `make` method of a Situation subclass as its argument.
+     * <p>
+     * For passing methods as arguments in Java 8, see:
+     * - http://stackoverflow.com/questions/25186216/java-8-pass-method-as-parameter
+     * - http://stackoverflow.com/questions/28417262/java-8-supplier-consumer-explanation-for-the-layperson
+     */
+    public GameState(Consumer<Board> makeSituation) {
 
-        situation.make(board);
+        makeSituation.accept(board);
         whosTurn = Color.WHITE;
         parent = null;
 

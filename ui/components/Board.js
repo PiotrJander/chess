@@ -1,10 +1,15 @@
-import React from 'react'
-import _ from 'lodash'
+import React from "react"
 
 
 export class Board extends React.Component {
 
     render() {
+
+        return (
+            <div style={styles.board}>
+                {this.props.board.map((row, i) => <Row row={row} i={i}/>)}
+            </div>
+        )
 
         return (
             <div style={styles.board}>
@@ -18,17 +23,28 @@ export class Board extends React.Component {
     }
 }
 
+
+const Row = ({row, i}) => (
+    <div>
+        row.map((piece, j) => <Tile i={i} j={j} piece={piece}/>)
+    </div>
+)
+
+
+const Tile = ({i, j, piece}) => (
+    <div key={2^i * 3^j} style={{...styles.tile, backgroundColor: tileColor(i, j)}}>
+        {piece ? <img src={pieceImage(piece.piece)} style={styles.pieceImage}/> : null}
+    </div>
+)
+
+
+
 const pieceImage = s => {
     return require(`../svg/Chess_${s}t45.svg`)
 }
 
-const isBlack = i => {
-    const row = Math.floor(i / 8);
-    const col = i % 8;
-    return row % 2 == col % 2
-}
 
-const tileColor = i => isBlack(i) ? colors.blackTile : colors.whiteTile
+const tileColor = (i, j) => i % 2 == j % 2 ? colors.blackTile : colors.whiteTile
 
 
 const colors = {

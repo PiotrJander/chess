@@ -39,14 +39,18 @@ abstract public class Piece implements JsonSerializable {
      * E.g. a white king with id=2 will be serialized to
      * <p>
      * {
-     * piece: "kl",
-     * id: 2
+     *  type: "King",
+     *  color: "WHITE"
+     *  piece: "kl",
+     *  id: 2
      * }
      */
     @Override
     public void serialize(JsonGenerator gen, SerializerProvider serializers) throws IOException {
         gen.writeStartObject();
-        gen.writeStringField("piece", letter() + color.letter());
+        gen.writeStringField("type", getClass().getName());
+        gen.writeStringField("color", color.name());
+        gen.writeStringField("code", letter() + color.letter());
         gen.writeNumberField("id", id);
         gen.writeEndObject();
     }
