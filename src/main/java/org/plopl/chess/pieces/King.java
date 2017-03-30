@@ -1,9 +1,6 @@
 package org.plopl.chess.pieces;
 
-import org.plopl.chess.Color;
-import org.plopl.chess.Field;
-import org.plopl.chess.GameState;
-import org.plopl.chess.Vector;
+import org.plopl.chess.*;
 
 import java.util.stream.Stream;
 
@@ -18,7 +15,7 @@ public class King extends Piece {
     }
 
     @Override
-    public Stream<Field> potentialMoves(GameState gs) {
+    public Stream<Move> potentialMoves(GameState gs) {
         Field currentPosition = this.getPosition(gs);
         return Stream.of(
                 new Vector(-1, -1),
@@ -38,6 +35,7 @@ public class King extends Piece {
                     return
                             pieceOnField == null // empty field
                                     || pieceOnField.getColor() == gs.getWhosTurn().other();  // enemy piece on field
-                });
+                })
+                .map(dest -> new Move(this, currentPosition, dest));
     }
 }

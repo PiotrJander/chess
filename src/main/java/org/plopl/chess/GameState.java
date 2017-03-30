@@ -31,8 +31,7 @@ public class GameState {
         makeSituation.accept(board);
         whosTurn = Color.WHITE;
         parent = null;
-
-        // TODO constructor for the init game state; populate with init layout
+        lastMove = null;
     }
 
     public GameState(@NotNull GameState parent, @NotNull Move m) {

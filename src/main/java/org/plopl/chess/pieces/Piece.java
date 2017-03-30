@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import org.plopl.chess.Color;
 import org.plopl.chess.Field;
 import org.plopl.chess.GameState;
+import org.plopl.chess.Move;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -68,7 +69,7 @@ abstract public class Piece implements JsonSerializable {
      * The only situation when a potential move by player P is not a valid move is when
      * the move would lead to P being checked.
      */
-    abstract public Stream<Field> potentialMoves(GameState gs);
+    abstract public Stream<Move> potentialMoves(GameState gs);
 
     /**
      * Returns the Field where the Piece stands.

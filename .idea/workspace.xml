@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="62c6a38e-e47b-4e44-b502-851d785a37f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Color.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Color.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" />
     </list>
     <ignored path="chess.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,7 +90,7 @@
     <favorites_list name="chess" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.59313214">
+    <splitter split-orientation="vertical" split-proportion="0.7408949">
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.76458186">
           <split-first>
@@ -97,19 +98,20 @@
               <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="232">
-                      <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+                    <state relative-caret-position="-308">
+                      <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
                       <folding>
                         <element signature="imports" expanded="true" />
-                        <element signature="e#1392#1393#0" expanded="true" />
-                        <element signature="e#1420#1421#0" expanded="true" />
-                        <element signature="e#1485#1486#0" expanded="true" />
-                        <element signature="e#1902#1903#0" expanded="true" />
-                        <element signature="e#1959#1960#0" expanded="true" />
-                        <element signature="e#2006#2007#0" expanded="true" />
-                        <element signature="e#2063#2064#0" expanded="true" />
-                        <element signature="e#2281#2282#0" expanded="true" />
-                        <element signature="e#2376#2377#0" expanded="true" />
+                        <element signature="e#1337#1338#0" expanded="true" />
+                        <element signature="e#1365#1366#0" expanded="true" />
+                        <element signature="e#1399#1400#0" expanded="true" />
+                        <element signature="e#1430#1431#0" expanded="true" />
+                        <element signature="e#1847#1848#0" expanded="true" />
+                        <element signature="e#1904#1905#0" expanded="true" />
+                        <element signature="e#1951#1952#0" expanded="true" />
+                        <element signature="e#2008#2009#0" expanded="true" />
+                        <element signature="e#2226#2227#0" expanded="true" />
+                        <element signature="e#2321#2322#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -118,30 +120,21 @@
               <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Main.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="442">
-                      <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-                      <folding />
+                    <state relative-caret-position="306">
+                      <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Board.java">
+              <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="459">
-                      <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                        <element signature="e#226#227#0" expanded="true" />
-                        <element signature="e#260#261#0" expanded="true" />
-                        <element signature="e#311#312#0" expanded="true" />
-                        <element signature="e#362#363#0" expanded="true" />
-                        <element signature="e#412#413#0" expanded="true" />
-                        <element signature="e#447#448#0" expanded="true" />
-                        <element signature="e#496#497#0" expanded="true" />
-                        <element signature="e#547#548#0" expanded="true" />
-                        <element signature="e#610#611#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="170">
+                      <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -149,12 +142,10 @@
               <file leaf-file-name="Piece.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="425">
-                      <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+                    <state relative-caret-position="152">
+                      <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
                       <folding>
                         <element signature="imports" expanded="true" />
-                        <element signature="e#2772#2773#0" expanded="true" />
-                        <element signature="e#2800#2801#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -163,42 +154,10 @@
               <file leaf-file-name="Bishop.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="136">
-                      <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+                    <state relative-caret-position="459">
+                      <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="68" />
                       <folding>
                         <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="VectorPiece.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="238">
-                      <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="63" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                        <element signature="e#483#484#0" expanded="true" />
-                        <element signature="e#537#538#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Field.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="170">
-                      <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                      <folding>
-                        <element signature="imports" expanded="true" />
-                        <element signature="e#169#170#0" expanded="true" />
-                        <element signature="e#203#204#0" expanded="true" />
-                        <element signature="e#407#408#0" expanded="true" />
-                        <element signature="e#489#490#0" expanded="true" />
-                        <element signature="e#527#528#0" expanded="true" />
-                        <element signature="e#600#601#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -207,23 +166,10 @@
               <file leaf-file-name="King.java" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="226">
-                      <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+                    <state relative-caret-position="385">
+                      <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
                       <folding>
                         <element signature="imports" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="Color.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Color.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="51">
-                      <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-                      <folding>
-                        <element signature="e#132#133#0" expanded="true" />
-                        <element signature="e#184#185#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -282,8 +228,8 @@
           <file leaf-file-name="scratch_19.txt" pinned="false" current-in-tab="true">
             <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_19.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+                <state relative-caret-position="425">
+                  <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
@@ -694,7 +640,6 @@
         <option value="$PROJECT_DIR$/ui/configureStore.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/haskell/Chess.hs" />
-        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" />
         <option value="$PROJECT_DIR$/src/main/java/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Piece.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/situations/Situation.java" />
@@ -705,15 +650,16 @@
         <option value="$PROJECT_DIR$/ui/components/Board.js" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/situations/AllBishops.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Vector.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Vector.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Field.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_19.txt" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Color.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_19.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java" />
       </list>
     </option>
@@ -1250,7 +1196,7 @@
       <option name="presentableId" value="Default" />
       <updated>1489917249262</updated>
       <workItem from="1489917252864" duration="17524000" />
-      <workItem from="1490796073225" duration="24358000" />
+      <workItem from="1490796073225" duration="24994000" />
     </task>
     <task id="LOCAL-00001" summary="Adds UI">
       <created>1489919175385</created>
@@ -1364,11 +1310,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490906436269</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Implements moves for king and bishop.">
+      <created>1490907306205</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1490907306207</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41882000" />
+    <option name="totallyTimeSpent" value="42518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -1468,7 +1421,8 @@
     <MESSAGE value="Constructs the GameState from a Situation. Refactor UI code" />
     <MESSAGE value="Refactors UI" />
     <MESSAGE value="Adds Vector and VectorPiece classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds Vector and VectorPiece classes." />
+    <MESSAGE value="Implements moves for king and bishop." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements moves for king and bishop." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1495,7 +1449,7 @@
         <state relative-caret-position="153">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1614,26 +1568,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1659,25 +1597,6 @@
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1715,26 +1634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2772#2773#0" expanded="true" />
-            <element signature="e#2800#2801#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/types/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1767,55 +1666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1485#1486#0" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#2006#2007#0" expanded="true" />
-            <element signature="e#2063#2064#0" expanded="true" />
-            <element signature="e#2281#2282#0" expanded="true" />
-            <element signature="e#2376#2377#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_19.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Color.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1827,10 +1677,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1951#1952#0" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="e#2226#2227#0" expanded="true" />
+            <element signature="e#2321#2322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_19.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/VectorPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="385">
+          <caret line="31" column="65" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
