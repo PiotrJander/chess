@@ -6,7 +6,7 @@ public enum Color {
     WHITE,
     BLACK;
 
-    Color other() {
+    public Color other() {
         return this == WHITE ? BLACK : WHITE;
     }
 

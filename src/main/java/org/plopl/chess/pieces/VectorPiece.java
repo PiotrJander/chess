@@ -20,7 +20,11 @@ public class VectorPiece {
         this.initialPosition = initialPosition;
     }
 
-    public Stream<Field> potentialMoves(Field position) {
+    public Stream<Field> potentialMoves() {
+        return movesFromField(initialPosition);
+    }
+
+    private Stream<Field> movesFromField(Field position) {
 
         Field nextPosition = position.add(vector);
 
@@ -36,7 +40,7 @@ public class VectorPiece {
 
         if (pieceOnNextPos == null) {
             // the next position is free
-            return Stream.concat(Stream.of(nextPosition), potentialMoves(nextPosition));
+            return Stream.concat(Stream.of(nextPosition), movesFromField(nextPosition));
         } else {
             // there is an enemy piece on the next position
             return Stream.of(nextPosition);
