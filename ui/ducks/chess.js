@@ -1,5 +1,6 @@
 import {createAction} from "redux-actions"
-import {Piece} from "../types/index"
+import {Piece, Coor} from "../types/index"
+import {coorEquals} from "../utils/index"
 
 
 const prefix = "chess/"
@@ -12,10 +13,12 @@ const REQUEST_NEXT_MOVE = prefix + 'REQUEST_NEXT_MOVE'
 const RECEIVE_NEXT_MOVE = prefix + 'RECEIVE_NEXT_MOVE'
 const FAIL_NEXT_MOVE = prefix + 'FAIL_NEXT_MOVE'
 
+const TOGGLE_TILE_SELECTION = prefix + 'TOGGLE_TILE_SELECTION'
 
 type State = {
     board: Piece[][],
-    message: string
+    message: string,
+    selectedTile: ?Coor
 }
 
 type Action = {
@@ -40,6 +43,8 @@ export default function reducer(state: State = {
         case FAIL_NEW_GAME:
         case FAIL_NEXT_MOVE:
             return {...state, message: 'Communication with the engine failed'}
+        case TOGGLE_TILE_SELECTION:
+            return {...state, selectedTile: coorEquals(state.selectedTile, action.payload) ? null : action.payload}
         default:
             return state
     }
@@ -52,6 +57,8 @@ const failNewGame = createAction(FAIL_NEW_GAME)
 const requestNextMove = createAction(REQUEST_NEXT_MOVE)
 const receiveNextMove = createAction(RECEIVE_NEXT_MOVE)
 const failNextMove = createAction(FAIL_NEXT_MOVE)
+
+export const toggleTileSelectionAction = createAction(TOGGLE_TILE_SELECTION)
 
 export function newGameAction(): Function {
     return dispatch => {

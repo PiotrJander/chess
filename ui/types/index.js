@@ -4,3 +4,5 @@ export type Piece = {
     code: string,
     id: number
 }
+
+export type Coor = [number, number]

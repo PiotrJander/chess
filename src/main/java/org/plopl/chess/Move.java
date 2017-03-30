@@ -15,4 +15,12 @@ public class Move {
     public int getPieceId() {
         return pieceId;
     }
+
+    public Field getFrom() {
+        return from;
+    }
+
+    public Field getTo() {
+        return to;
+    }
 }

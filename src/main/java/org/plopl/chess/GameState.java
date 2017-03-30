@@ -82,7 +82,7 @@ public class GameState {
 
     public ServerMessage makeServerMessage() {
         ServerMessage message = new ServerMessage();
-        message.board = board;
+        message.board = board.getBoard();
         message.validMoves = allPiecesOfColor(whosTurn)
                 .flatMap(piece -> piece.validMoves(this))
                 .collect(Collectors.groupingBy(Move::getPieceId));

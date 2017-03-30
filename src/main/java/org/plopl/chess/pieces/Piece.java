@@ -82,7 +82,7 @@ abstract public class Piece implements JsonSerializable {
         return potentialMoves(gs)
                 .filter(move -> {
                     GameState potentialGameState = new GameState(gs, move);
-                    return potentialGameState.isCheck(gs.getWhosTurn());
+                    return !potentialGameState.isCheck(gs.getWhosTurn());
                 });
     }
 

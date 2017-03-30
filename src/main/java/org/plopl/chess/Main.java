@@ -6,23 +6,24 @@ import org.plopl.chess.situations.TwoKings;
 import static spark.Spark.get;
 
 public class Main {
+
+    static ObjectMapper mapper = new ObjectMapper();
+
+    static GameState gs;
+
     public static void main(String[] args) {
 
-        ObjectMapper mapper = new ObjectMapper();
-
-        GameState gs = new GameState(TwoKings::make);
-
         get("/new-game", (req, res) -> {
+            gs = new GameState(TwoKings::make);
             res.type("application/json");
             res.header("Access-Control-Allow-Origin", "*");
-            return mapper.writer().writeValueAsString(gs.getBoard());
+            return mapper.writer().writeValueAsString(gs.makeServerMessage());
         });
 
-//        get("/next-move", (req, res) -> {
-//            String[] shuffled = shuffle(b);
-//            res.type("application/json");
-//            res.header("Access-Control-Allow-Origin", "*");
-//            return mapper.writer().writeValueAsString(shuffled);
-//        });
+        get("/make-move", (req, res) -> {
+            res.type("application/json");
+            res.header("Access-Control-Allow-Origin", "*");
+            return "";
+        });
     }
 }
