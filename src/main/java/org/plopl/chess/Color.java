@@ -1,5 +1,7 @@
 package org.plopl.chess;
 
+import org.plopl.chess.pieces.Piece;
+
 public enum Color {
     WHITE,
     BLACK;
@@ -9,7 +11,7 @@ public enum Color {
     }
 
     boolean pieceHasColor(Piece piece) {
-        return piece.color == this;
+        return piece.getColor() == this;
     }
 
 }
