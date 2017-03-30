@@ -7,5 +7,5 @@ public class ServerMessage {
 
     public Board board;
 
-    public Map<Integer, List<Field>> validMoves;
+    public Map<Integer, List<Move>> validMoves;
 }

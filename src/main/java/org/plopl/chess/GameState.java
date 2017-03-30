@@ -80,4 +80,19 @@ public class GameState {
         return isCheck(whosTurn) && successors().collect(Collectors.toList()).isEmpty();
     }
 
+    public ServerMessage makeServerMessage() {
+        ServerMessage message = new ServerMessage();
+        message.board = board;
+        message.validMoves = allPiecesOfColor(whosTurn)
+                .flatMap(piece -> piece.validMoves(this))
+                .collect(Collectors.groupingBy(Move::getPieceId));
+        return message;
+    }
+
 }
+
+
+
+
+
+

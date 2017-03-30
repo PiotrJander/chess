@@ -1,7 +1,7 @@
 package org.plopl.chess;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.plopl.chess.situations.AllBishops;
+import org.plopl.chess.situations.TwoKings;
 
 import static spark.Spark.get;
 
@@ -10,7 +10,7 @@ public class Main {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        GameState gs = new GameState(AllBishops::make);
+        GameState gs = new GameState(TwoKings::make);
 
         get("/new-game", (req, res) -> {
             res.type("application/json");

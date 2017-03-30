@@ -11,4 +11,8 @@ public class Move {
         this.from = from;
         this.to = to;
     }
+
+    public int getPieceId() {
+        return pieceId;
+    }
 }
