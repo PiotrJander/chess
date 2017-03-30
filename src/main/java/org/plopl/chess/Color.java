@@ -14,4 +14,11 @@ public enum Color {
         return piece.getColor() == this;
     }
 
+    /**
+     * @return A letter, "l" for white (like in light) and "d" for black (like in dark).
+     */
+    public String letter() {
+        return this == WHITE ? "l" : "d";
+    }
+
 }

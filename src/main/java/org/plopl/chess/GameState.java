@@ -3,6 +3,7 @@ package org.plopl.chess;
 import org.jetbrains.annotations.NotNull;
 import org.plopl.chess.pieces.King;
 import org.plopl.chess.pieces.Piece;
+import org.plopl.chess.situations.Situation;
 
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -10,15 +11,17 @@ import java.util.stream.Stream;
 
 public class GameState {
 
-    private Board board;
+    private Board board = new Board();
 
     private Color whosTurn;
 
     private GameState parent;
 
-    public GameState() {
+    private Move lastMove;
 
-        board = new Board();
+    public GameState(Situation situation) {
+
+        situation.make(board);
         whosTurn = Color.WHITE;
         parent = null;
 
@@ -45,7 +48,7 @@ public class GameState {
     }
 
     @NotNull
-    King getKingOfColor(Color color) {
+    King kingOfColor(Color color) {
         //noinspection OptionalGetWithoutIsPresent
         return (King) allPiecesOfColor(color).filter(piece -> piece instanceof King).findFirst().get();
     }
@@ -60,9 +63,7 @@ public class GameState {
 
     boolean isCheck(Color myColor) {
         Color yourColor = myColor.other();
-        King myKing = getKingOfColor(myColor);
-        Stream<Piece> yourPieces = allPiecesOfColor(yourColor);
-        return yourPieces.anyMatch(piece -> piece.threatens(this, myKing));
+        return allPiecesOfColor(yourColor).anyMatch(piece -> piece.threatens(this, kingOfColor(myColor)));
     }
 
     boolean isMate() {
