@@ -36,6 +36,10 @@ abstract public class Piece implements JsonSerializable {
      */
     abstract String letter();
 
+    public int getId() {
+        return id;
+    }
+
     /**
      * E.g. a white king with id=2 will be serialized to
      * <p>

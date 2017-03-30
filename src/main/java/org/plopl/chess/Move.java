@@ -1,15 +1,13 @@
 package org.plopl.chess;
 
-import org.plopl.chess.pieces.Piece;
-
 public class Move {
 
-    Piece piece;
+    int pieceId;
     Field from;
     Field to;
 
-    public Move(Piece piece, Field from, Field to) {
-        this.piece = piece;
+    public Move(int pieceId, Field from, Field to) {
+        this.pieceId = pieceId;
         this.from = from;
         this.to = to;
     }

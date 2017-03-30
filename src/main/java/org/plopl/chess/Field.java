@@ -1,9 +1,15 @@
 package org.plopl.chess;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializable;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+import java.io.IOException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Field extends Vector {
+public class Field extends Vector implements JsonSerializable {
 
     public Field(int row, int column) {
         super(row, column);
@@ -19,5 +25,16 @@ public class Field extends Vector {
 
     public boolean isWithinBoard() {
         return row >= 0 && row <= 7 && column >= 0 && column <= 7;
+    }
+
+    @Override
+    public void serialize(JsonGenerator gen, SerializerProvider serializers) throws IOException {
+        int[] helper = {row, column};
+        gen.writeArray(helper, 0, 2);
+    }
+
+    @Override
+    public void serializeWithType(JsonGenerator gen, SerializerProvider serializers, TypeSerializer typeSer) throws IOException {
+
     }
 }

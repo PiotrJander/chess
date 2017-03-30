@@ -36,6 +36,6 @@ public class King extends Piece {
                             pieceOnField == null // empty field
                                     || pieceOnField.getColor() == gs.getWhosTurn().other();  // enemy piece on field
                 })
-                .map(dest -> new Move(this, currentPosition, dest));
+                .map(dest -> new Move(this.getId(), currentPosition, dest));
     }
 }

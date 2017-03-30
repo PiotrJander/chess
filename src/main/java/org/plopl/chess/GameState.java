@@ -37,9 +37,12 @@ public class GameState {
     public GameState(@NotNull GameState parent, @NotNull Move move) {
 
         this.parent = parent;
-        this.whosTurn = parent.whosTurn.other();
-        this.board = Board.copyFrom(parent.board);
-        this.lastMove = move;
+        whosTurn = parent.whosTurn.other();
+        board = Board.copyFrom(parent.board);
+        lastMove = move;
+
+        board.set(move.to, board.get(move.from));
+        board.set(move.from, null);
     }
 
     public Board getBoard() {

@@ -29,6 +29,6 @@ public class Bishop extends Piece {
                 vectorPiecePlusPlus.potentialMoves()
         )
                 .flatMap(x -> x)
-                .map(dest -> new Move(this, initialPosition, dest));
+                .map(dest -> new Move(this.getId(), initialPosition, dest));
     }
 }
