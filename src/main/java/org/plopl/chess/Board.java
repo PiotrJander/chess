@@ -7,6 +7,12 @@ public class Board {
 
     private Piece[][] board = new Piece[8][8];
 
+    public static Board copyFrom(Board previous) {
+        Board board = new Board();
+        Field.allFields().forEach(field -> board.set(field, previous.get(field)));
+        return board;
+    }
+
     @Nullable
     public Piece get(int i, int j) {
         return board[i][j];

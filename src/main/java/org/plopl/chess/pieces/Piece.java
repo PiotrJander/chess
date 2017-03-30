@@ -72,6 +72,17 @@ abstract public class Piece implements JsonSerializable {
     abstract public Stream<Move> potentialMoves(GameState gs);
 
     /**
+     * Valid moves are potential moves which do not result in the moving player being checked.
+     */
+    public Stream<Move> validMoves(GameState gs) {
+        return potentialMoves(gs)
+                .filter(move -> {
+                    GameState potentialGameState = new GameState(gs, move);
+                    return potentialGameState.isCheck(gs.getWhosTurn());
+                });
+    }
+
+    /**
      * Returns the Field where the Piece stands.
      */
     public Field getPosition(GameState gs) {

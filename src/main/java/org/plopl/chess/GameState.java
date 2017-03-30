@@ -34,15 +34,12 @@ public class GameState {
         lastMove = null;
     }
 
-    public GameState(@NotNull GameState parent, @NotNull Move m) {
+    public GameState(@NotNull GameState parent, @NotNull Move move) {
 
         this.parent = parent;
         this.whosTurn = parent.whosTurn.other();
-
-        this.board = parent.board;  // TODO copy board instead
-
-        // TODO update the board from the parent's move
-        // we assume the move is valid, so no need to check it
+        this.board = Board.copyFrom(parent.board);
+        this.lastMove = move;
     }
 
     public Board getBoard() {
@@ -71,12 +68,12 @@ public class GameState {
         throw new UnsupportedOperationException();
     }
 
-    boolean isCheck(Color myColor) {
+    public boolean isCheck(Color myColor) {
         Color yourColor = myColor.other();
         return allPiecesOfColor(yourColor).anyMatch(piece -> piece.threatens(this, kingOfColor(myColor)));
     }
 
-    boolean isMate() {
+    public boolean isMate() {
         return isCheck(whosTurn) && successors().collect(Collectors.toList()).isEmpty();
     }
 
