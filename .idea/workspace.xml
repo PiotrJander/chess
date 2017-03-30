@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62c6a38e-e47b-4e44-b502-851d785a37f2" name="Default" comment="Define valid moves for a piece. Copies the previous board to the child.">
+    <list default="true" id="62c6a38e-e47b-4e44-b502-851d785a37f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Field.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/GameState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/Move.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/ServerMessage.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/ServerMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Bishop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/King.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" afterPath="$PROJECT_DIR$/src/main/java/org/plopl/chess/pieces/Piece.java" />
     </list>
     <ignored path="chess.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1181,7 +1174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1489917249262</updated>
       <workItem from="1489917252864" duration="17524000" />
-      <workItem from="1490796073225" duration="26399000" />
+      <workItem from="1490796073225" duration="26515000" />
     </task>
     <task id="LOCAL-00001" summary="Adds UI">
       <created>1489919175385</created>
@@ -1316,11 +1309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490908668840</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Adds ServerMessage for serializing for client. Impls JsonSerializable for Field. Uses piece id in Move. Actually computes new GameState from Move.">
+      <created>1490909414930</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1490909414930</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43923000" />
+    <option name="totallyTimeSpent" value="44039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -1423,7 +1423,8 @@
     <MESSAGE value="Implements moves for king and bishop." />
     <MESSAGE value="Refactors so that potentialMoves return a stream of Moves rather than Fields." />
     <MESSAGE value="Define valid moves for a piece. Copies the previous board to the child." />
-    <option name="LAST_COMMIT_MESSAGE" value="Define valid moves for a piece. Copies the previous board to the child." />
+    <MESSAGE value="Adds ServerMessage for serializing for client. Impls JsonSerializable for Field. Uses piece id in Move. Actually computes new GameState from Move." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds ServerMessage for serializing for client. Impls JsonSerializable for Field. Uses piece id in Move. Actually computes new GameState from Move." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
