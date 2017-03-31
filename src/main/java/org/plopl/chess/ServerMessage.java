@@ -5,9 +5,13 @@ import org.plopl.chess.pieces.Piece;
 import java.util.List;
 import java.util.Map;
 
-public class ServerMessage {
 
-    public Piece[][] board;
+/**
+ * Utility class which is created only to get serialized into a JSON for the client.
+ */
+class ServerMessage {
 
-    public Map<Integer, List<Move>> validMoves;
+    Piece[][] board;
+
+    Map<Integer, List<Move>> validMoves;
 }

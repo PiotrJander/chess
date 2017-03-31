@@ -7,14 +7,17 @@ public class Board {
 
     private Piece[][] board = new Piece[8][8];
 
-    public static Board copyFrom(Board previous) {
+    /**
+     * Creates a new board and copies the situation from `previous`.
+     */
+    static Board copyFrom(Board previous) {
         Board board = new Board();
         Field.allFields().forEach(field -> board.set(field, previous.get(field)));
         return board;
     }
 
     @Nullable
-    public Piece get(int i, int j) {
+    private Piece get(int i, int j) {
         return board[i][j];
     }
 
@@ -27,11 +30,11 @@ public class Board {
         board[i][j] = piece;
     }
 
-    public void set(Field field, Piece piece) {
+    void set(Field field, Piece piece) {
         set(field.row, field.column, piece);
     }
 
-    public Piece[][] getBoard() {
+    Piece[][] getBoard() {
         return board;
     }
 }

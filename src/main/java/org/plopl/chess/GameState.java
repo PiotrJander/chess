@@ -1,6 +1,7 @@
 package org.plopl.chess;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.plopl.chess.pieces.King;
 import org.plopl.chess.pieces.Piece;
 
@@ -17,8 +18,10 @@ public class GameState {
 
     private Color whosTurn;
 
+    @Nullable
     private GameState parent;
 
+    @Nullable
     private Move lastMove;
 
     /**
@@ -28,7 +31,7 @@ public class GameState {
      * - http://stackoverflow.com/questions/25186216/java-8-pass-method-as-parameter
      * - http://stackoverflow.com/questions/28417262/java-8-supplier-consumer-explanation-for-the-layperson
      */
-    public GameState(Consumer<Board> makeSituation) {
+    GameState(Consumer<Board> makeSituation) {
 
         makeSituation.accept(board);
         whosTurn = Color.WHITE;
@@ -36,6 +39,11 @@ public class GameState {
         lastMove = null;
     }
 
+    /**
+     * Creates a new GameState from the parent GameState and a Move.
+     * <p>
+     * The move is assumed to be valid.
+     */
     public GameState(@NotNull GameState parent, @NotNull Move move) {
 
         this.parent = parent;
@@ -55,34 +63,51 @@ public class GameState {
         return whosTurn;
     }
 
-    Stream<Piece> allPiecesOfColor(Color c) {
+    private Stream<Piece> allPiecesOfColor(Color c) {
         return Field.allFields().map(field -> board.get(field)).filter(Objects::nonNull).filter(c::pieceHasColor);
     }
 
     @NotNull
-    King kingOfColor(Color color) {
+    private King kingOfColor(Color color) {
         //noinspection OptionalGetWithoutIsPresent
         return (King) allPiecesOfColor(color).filter(piece -> piece instanceof King).findFirst().get();
     }
 
-    Stream<GameState> successors() {
-        return allPiecesOfColor(whosTurn).map(this::successorsFromPiece).flatMap(x -> x);
+    /**
+     * All possible successor GameStates from this GameState in the game tree.
+     */
+    private Stream<GameState> successors() {
+        return allPiecesOfColor(whosTurn).flatMap(this::successorsFromPiece);
     }
 
-    Stream<GameState> successorsFromPiece(Piece piece) {
+    /**
+     * All possible successor GameStates from this GameState in the game tree,
+     * resulting from moving a given piece.
+     */
+    private Stream<GameState> successorsFromPiece(Piece piece) {
         return piece.validMoves(this).map(move -> new GameState(this, move));
     }
 
+    /**
+     * True iff myColor is checked in this GameState.
+     */
     public boolean isCheck(Color myColor) {
         Color yourColor = myColor.other();
         return allPiecesOfColor(yourColor).anyMatch(piece -> piece.threatens(this, kingOfColor(myColor)));
     }
 
+    /**
+     * True iff there is a mate in this GameState.
+     */
     public boolean isMate() {
         return isCheck(whosTurn) && successors().collect(Collectors.toList()).isEmpty();
     }
 
-    public ServerMessage makeServerMessage() {
+    /**
+     * Encapsulates current board situation and valid moves for different pieces
+     * in a ServerMessage object which will be serialized and sent to the client.
+     */
+    ServerMessage makeServerMessage() {
         ServerMessage message = new ServerMessage();
         message.board = board.getBoard();
         message.validMoves = allPiecesOfColor(whosTurn)
@@ -91,7 +116,10 @@ public class GameState {
         return message;
     }
 
-    public GameState makeMove() {
+    /**
+     * Chooses a random move by randomly selecting from all successor GameStates.
+     */
+    GameState makeRandomMove() {
         List<GameState> succ = successors().collect(Collectors.toList());
         return succ.get((new Random()).nextInt(succ.size()));
     }

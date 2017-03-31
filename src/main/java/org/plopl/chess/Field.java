@@ -9,16 +9,26 @@ import java.io.IOException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+
+/**
+ * Field simply represents coordinates.
+ */
 public class Field extends Vector implements JsonSerializable {
 
     public Field(int row, int column) {
         super(row, column);
     }
 
+    /**
+     * Returns a stream of all fields on the board. Useful for searching on all fields.
+     */
     public static Stream<Field> allFields() {
         return IntStream.range(0, 8).boxed().flatMap(i -> IntStream.range(0, 8).mapToObj(j -> new Field(i, j)));
     }
 
+    /**
+     * Returns a new Field by adding a Vector to this Field. Useful for computing moves for a piece.
+     */
     public Field add(Vector other) {
         return new Field(this.row + other.row, this.column + other.column);
     }
@@ -27,6 +37,9 @@ public class Field extends Vector implements JsonSerializable {
         return row >= 0 && row <= 7 && column >= 0 && column <= 7;
     }
 
+    /**
+     * Field {row: row, column: column} is serialized as [row, column]
+     */
     @Override
     public void serialize(JsonGenerator gen, SerializerProvider serializers) throws IOException {
         int[] helper = {row, column};

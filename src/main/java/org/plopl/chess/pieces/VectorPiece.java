@@ -6,44 +6,52 @@ import org.plopl.chess.Vector;
 
 import java.util.stream.Stream;
 
-public class VectorPiece {
+class VectorPiece {
 
-    Vector vector;
+    private Vector vector;
 
-    GameState gs;
+    private GameState gs;
 
-    Field initialPosition;
+    private Field initialPosition;
 
-    public VectorPiece(Vector vector, GameState gs, Field initialPosition) {
+    VectorPiece(Vector vector, GameState gs, Field initialPosition) {
         this.vector = vector;
         this.gs = gs;
         this.initialPosition = initialPosition;
     }
 
-    public Stream<Field> potentialMoves() {
-        return movesFromField(initialPosition);
+    /**
+     * Compute the reachable fields from `initialPosition`.
+     */
+    Stream<Field> reachableFields() {
+        return reachableFromField(initialPosition);
     }
 
-    private Stream<Field> movesFromField(Field position) {
+    /**
+     * Recursively compute the reachable fields from `position`.
+     */
+    private Stream<Field> reachableFromField(Field position) {
 
-        Field nextPosition = position.add(vector);
+        Field nextField = position.add(vector);
 
-        if (!nextPosition.isWithinBoard()) {
+        if (!nextField.isWithinBoard()) {
+            // next field is out of board
             return Stream.empty();
         }
 
-        Piece pieceOnNextPos = gs.getBoard().get(nextPosition);
-        if (pieceOnNextPos != null && pieceOnNextPos.getColor() == gs.getWhosTurn()) {
+        Piece pieceOnNextField = gs.getBoard().get(nextField);
+        if (pieceOnNextField != null && pieceOnNextField.getColor() == gs.getWhosTurn()) {
             // there is our piece on the next position
             return Stream.empty();
         }
 
-        if (pieceOnNextPos == null) {
-            // the next position is free
-            return Stream.concat(Stream.of(nextPosition), movesFromField(nextPosition));
+        if (pieceOnNextField == null) {
+            // the next position is free, we can recursively explore further fields
+            return Stream.concat(Stream.of(nextField), reachableFromField(nextField));
         } else {
-            // there is an enemy piece on the next position
-            return Stream.of(nextPosition);
+            // there is an enemy piece on the next position, so thisi is the last reachable
+            // field in this direction
+            return Stream.of(nextField);
         }
     }
 }
