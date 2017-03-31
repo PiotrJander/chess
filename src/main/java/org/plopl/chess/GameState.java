@@ -63,6 +63,10 @@ public class GameState {
         return whosTurn;
     }
 
+    public void setWhosTurn(Color whosTurn) {
+        this.whosTurn = whosTurn;
+    }
+
     private Stream<Piece> allPiecesOfColor(Color c) {
         return Field.allFields().map(field -> board.get(field)).filter(Objects::nonNull).filter(c::pieceHasColor);
     }

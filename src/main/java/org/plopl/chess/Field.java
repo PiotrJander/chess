@@ -26,6 +26,16 @@ public class Field extends Vector implements JsonSerializable {
         return IntStream.range(0, 8).boxed().flatMap(i -> IntStream.range(0, 8).mapToObj(j -> new Field(i, j)));
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if (!(obj instanceof Field)) {
+            return false;
+        }
+        Field o = (Field) obj;
+        return this.row == o.row && this.column == o.column;
+    }
+
     /**
      * Returns a new Field by adding a Vector to this Field. Useful for computing moves for a piece.
      */

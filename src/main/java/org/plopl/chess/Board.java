@@ -17,7 +17,7 @@ public class Board {
     }
 
     @Nullable
-    private Piece get(int i, int j) {
+    public Piece get(int i, int j) {
         return board[i][j];
     }
 
@@ -30,7 +30,7 @@ public class Board {
         board[i][j] = piece;
     }
 
-    void set(Field field, Piece piece) {
+    public void set(Field field, Piece piece) {
         set(field.row, field.column, piece);
     }
 
