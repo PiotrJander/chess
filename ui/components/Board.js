@@ -1,6 +1,6 @@
 import React from "react"
 import {Piece, Coor} from "../types/index"
-import {coorEquals} from "../utils/index"
+import {isMove} from "../utils/index"
 
 
 export class Board extends React.Component {
@@ -9,14 +9,13 @@ export class Board extends React.Component {
         board: Piece[][],
         moves: Coor[],
         selectedPieceId: ?number,
-        toggleTileSelectionAction: Function
+        clickTileAction: Function
     }
 
     render() {
-        const {board, ...otherProps} = this.props;
         return (
             <div style={styles.board}>
-                {board.map((row, i) => <Row key={i} row={row} i={i} {...otherProps} />)}
+                {this.props.board.map((row, i) => <Row key={i} row={row} i={i} {...this.props} />)}
             </div>
         )
     }
@@ -34,22 +33,17 @@ const Row = ({row, i, ...otherProps}) => {
 
 
 // const Tile = ({i, j, piece} : {i: number, j: number, piece: Piece}) => (
-const Tile = ({i, j, piece, selectedPieceId, moves, toggleTileSelectionAction}) => {
+const Tile = ({i, j, piece, selectedPieceId, moves, board, clickTileAction}) => {
     const tileStyles = {
         ...styles.tile,
         backgroundColor: tileColor(i, j),
         border: (piece && piece.id === selectedPieceId) || isMove([i, j], moves) ? "2px dotted" : "inherit"
     }
     return (
-        <div style={tileStyles} onClick={() => toggleTileSelectionAction([i, j])}>
+        <div style={tileStyles} onClick={() => clickTileAction(board, moves, selectedPieceId, [i, j])}>
             {piece ? <img src={pieceImage(piece.code)} style={styles.pieceImage}/> : null}
         </div>
     )
-}
-
-
-function isMove(coor: Coor, moves: Coor[]): boolean {
-    return moves.some(m => coorEquals(coor, m));
 }
 
 

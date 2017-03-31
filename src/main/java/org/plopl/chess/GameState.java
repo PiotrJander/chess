@@ -4,7 +4,9 @@ import org.jetbrains.annotations.NotNull;
 import org.plopl.chess.pieces.King;
 import org.plopl.chess.pieces.Piece;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -64,11 +66,11 @@ public class GameState {
     }
 
     Stream<GameState> successors() {
-        throw new UnsupportedOperationException();
+        return allPiecesOfColor(whosTurn).map(this::successorsFromPiece).flatMap(x -> x);
     }
 
-    Stream<GameState> successorsFromPiece() {
-        throw new UnsupportedOperationException();
+    Stream<GameState> successorsFromPiece(Piece piece) {
+        return piece.validMoves(this).map(move -> new GameState(this, move));
     }
 
     public boolean isCheck(Color myColor) {
@@ -87,6 +89,11 @@ public class GameState {
                 .flatMap(piece -> piece.validMoves(this))
                 .collect(Collectors.groupingBy(Move::getPieceId));
         return message;
+    }
+
+    public GameState makeMove() {
+        List<GameState> succ = successors().collect(Collectors.toList());
+        return succ.get((new Random()).nextInt(succ.size()));
     }
 
 }

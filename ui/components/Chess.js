@@ -14,7 +14,7 @@ class Chess1 extends React.Component {
         moves: Coor[],
         newGameAction: Function,
         nextMoveAction: Function,
-        toggleTileSelectionAction: Function
+        clickTileAction: Function
     }
 
     render() {
