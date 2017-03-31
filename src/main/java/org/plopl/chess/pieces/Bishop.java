@@ -18,17 +18,10 @@ public class Bishop extends Piece {
     @Override
     public Stream<Move> potentialMoves(GameState gs) {
         Field initialPosition = this.getPosition(gs);
-        VectorPiece vectorPieceMinusMinus = new VectorPiece(new Vector(-1, -1), gs, initialPosition);
-        VectorPiece vectorPiecePlusMinus = new VectorPiece(new Vector(1, -1), gs, initialPosition);
-        VectorPiece vectorPieceMinusPlus = new VectorPiece(new Vector(-1, 1), gs, initialPosition);
-        VectorPiece vectorPiecePlusPlus = new VectorPiece(new Vector(1, 1), gs, initialPosition);
-        return Stream.of(
-                vectorPieceMinusMinus.potentialMoves(),
-                vectorPieceMinusPlus.potentialMoves(),
-                vectorPiecePlusMinus.potentialMoves(),
-                vectorPiecePlusPlus.potentialMoves()
-        )
-                .flatMap(x -> x)
+
+        return Stream.of(new Vector(-1, -1), new Vector(1, -1), new Vector(-1, 1), new Vector(1, 1))
+                .map(vec -> new VectorPiece(vec, gs, initialPosition))
+                .flatMap(VectorPiece::potentialMoves)
                 .map(dest -> new Move(this.getId(), initialPosition, dest));
     }
 }
