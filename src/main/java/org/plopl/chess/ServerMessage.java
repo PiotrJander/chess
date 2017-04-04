@@ -14,4 +14,12 @@ class ServerMessage {
     Piece[][] board;
 
     Map<Integer, List<Move>> validMoves;
+
+    public Piece[][] getBoard() {
+        return board;
+    }
+
+    public Map<Integer, List<Move>> getValidMoves() {
+        return validMoves;
+    }
 }
