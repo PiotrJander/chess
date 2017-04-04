@@ -16,6 +16,7 @@ public class Bishop extends Piece {
     }
 
     /**
+     * olaboga co to za kod
      * For each direction a bishop can move at, construct a VectorPiece, get the reachable fields
      * for that VectorPiece, gather results together and convert to Moves.
      */
