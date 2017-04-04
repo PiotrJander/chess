@@ -8,7 +8,7 @@ import org.plopl.chess.pieces.King;
 import java.util.stream.IntStream;
 
 
-public class AllBishops {
+public class StandardSet {
 
     static public void make(Board board) {
         // whites
