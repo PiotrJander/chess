@@ -1,8 +1,7 @@
 package org.plopl.chess.pieces;
 
-import org.plopl.chess.Color;
-import org.plopl.chess.GameState;
-import org.plopl.chess.Move;
+
+import org.plopl.chess.*;
 
 import java.util.stream.Stream;
 
@@ -23,6 +22,14 @@ public class Pawn extends Piece {
 
     @Override
     public Stream<Move> potentialMoves(GameState gs) {
-        return null;
+        Field currentPosition = this.getPosition(gs);
+
+        int row = 1;
+        if(this.getColor() == Color.BLACK) row = -1;
+
+        return Stream.of(new Vector(row,0))
+                .map(currentPosition::add)
+                .filter(Field::isWithinBoard)
+                .map(dest -> new Move(this.getId(), currentPosition, dest));
     }
 }

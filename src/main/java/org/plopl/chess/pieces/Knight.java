@@ -1,8 +1,6 @@
 package org.plopl.chess.pieces;
 
-import org.plopl.chess.Color;
-import org.plopl.chess.GameState;
-import org.plopl.chess.Move;
+import org.plopl.chess.*;
 
 import java.util.stream.Stream;
 
@@ -23,6 +21,19 @@ public class Knight extends Piece {
 
     @Override
     public Stream<Move> potentialMoves(GameState gs) {
-        return null;
+        Field currentPosition = this.getPosition(gs);
+        return Stream.of(
+                new Vector(2,1),
+                new Vector(2,-1),
+                new Vector(-2,1),
+                new Vector(-2,-1),
+                new Vector(1,2),
+                new Vector(1,-2),
+                new Vector(-1,2),
+                new Vector(-1,-2)
+        )
+                .map(currentPosition::add)
+                .filter(Field::isWithinBoard)
+                .map(dest -> new Move(this.getId(), currentPosition, dest));
     }
 }
