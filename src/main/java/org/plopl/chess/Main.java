@@ -43,6 +43,8 @@ public class Main {
             res.type("application/json");
             return mapper.writer().writeValueAsString(gs.makeServerMessage());
         });
+
+        get("/foo", (req, res) -> "Hello world!!!");
     }
 
     private static void enableCORS(final String origin, final String methods, final String headers) {

@@ -1,5 +1,17 @@
 # chess
 
+## UPDATE: running front end with Docker
+
+1. Install Docker Engine and Docker Compose (included in Docker Toolbox on Windows and Mac)
+2. Run Docker
+3. Do `docker-compose up`. Your UI should install and run on port 3000. The server will run on port 9090.
+
+To reload changes in the server
+
+```
+./gradlew distDocker && docker-compose up -d --build server
+```
+
 ## Setup
 
 Make sure you have Node.js and NPM installed. Then follows these

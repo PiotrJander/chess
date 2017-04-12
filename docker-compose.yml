@@ -1,0 +1,12 @@
+server:
+  image: org.plopl/chess:1.0-SNAPSHOT
+  ports:
+    - "9090:9090"
+
+ui:
+  build: ./ui
+  command: npm start
+  volumes:
+   - ./ui:/app
+  ports:
+    - "3000:3000"
