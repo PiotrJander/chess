@@ -38,3 +38,4 @@ gradle-app.setting
 
 # custom
 haskell
+.idea/workspace.xml
