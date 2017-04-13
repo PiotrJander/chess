@@ -4,7 +4,8 @@
 
 1. Install Docker Engine and Docker Compose (included in Docker Toolbox on Windows and Mac)
 2. Run Docker
-3. Do `docker-compose up`. Your UI should install and run on port 3000. The server will run on port 9090.
+3. Do `./gradlew distDocker` to make the Docker image for the server.
+4. Do `docker-compose up`. Your UI should install and run on port 3000. The server will run on port 9090.
 
 To reload changes in the server
 
