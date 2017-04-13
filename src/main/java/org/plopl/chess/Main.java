@@ -1,7 +1,7 @@
 package org.plopl.chess;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.plopl.chess.situations.AllBishops;
+import org.plopl.chess.situations.StandardSet;
 
 import static spark.Spark.*;
 
@@ -18,7 +18,7 @@ public class Main {
         enableCORS("*", "*", "*");
 
         post("/new-game", (req, res) -> {
-            gs = new GameState(AllBishops::make);
+            gs = new GameState(StandardSet::make);
             res.type("application/json");
             return mapper.writer().writeValueAsString(gs.makeServerMessage());
         });

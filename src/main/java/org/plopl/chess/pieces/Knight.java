@@ -16,7 +16,7 @@ public class Knight extends Piece {
 
     @Override
     String letter() {
-        return null;
+        return "n";
     }
 
     @Override

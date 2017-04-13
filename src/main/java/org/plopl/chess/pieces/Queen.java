@@ -18,7 +18,7 @@ public class Queen extends Piece{
 
     @Override
     String letter() {
-        return null;
+        return "q";
     }
 
     @Override

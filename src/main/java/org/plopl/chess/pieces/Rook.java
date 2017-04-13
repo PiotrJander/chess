@@ -18,7 +18,7 @@ public class Rook extends Piece{
 
     @Override
     String letter() {
-        return null;
+        return "r";
     }
 
     @Override

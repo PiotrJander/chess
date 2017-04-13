@@ -17,7 +17,7 @@ public class Pawn extends Piece {
 
     @Override
     String letter() {
-        return null;
+        return "p";
     }
 
     @Override
