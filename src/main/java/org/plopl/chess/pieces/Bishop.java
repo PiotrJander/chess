@@ -4,10 +4,20 @@ import org.plopl.chess.*;
 
 import java.util.stream.Stream;
 
-public class Bishop extends Piece {
+public class Bishop extends VectorPiece {
 
     public Bishop(Color color) {
         super(color);
+    }
+
+    @Override
+    protected Stream<Vector> vectors() {
+        return Stream.of(
+                new Vector(-1, -1),
+                new Vector(-1, 1),
+                new Vector(1, -1),
+                new Vector(1, 1)
+        );
     }
 
     @Override
@@ -15,17 +25,5 @@ public class Bishop extends Piece {
         return "b";
     }
 
-    /**
-     * For each direction a bishop can move at, construct a VectorPiece, get the reachable fields
-     * for that VectorPiece, gather results together and convert to Moves.
-     */
-    @Override
-    public Stream<Move> potentialMoves(GameState gs) {
-        Field initialPosition = this.getPosition(gs);
 
-        return Stream.of(new Vector(-1, -1), new Vector(1, -1), new Vector(-1, 1), new Vector(1, 1))
-                .map(vec -> new VectorPiece(vec, gs, initialPosition))
-                .flatMap(VectorPiece::reachableFields)
-                .map(dest -> new Move(this.getId(), initialPosition, dest));
-    }
 }

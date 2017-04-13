@@ -101,7 +101,7 @@ abstract public class Piece implements JsonSerializable {
      * is among the potential moves for `this`.
      */
     public boolean threatens(GameState gs, Piece piece) {
-        return potentialMoves(gs).filter(move -> Objects.equals(move.getTo(), piece.getPosition(gs))).findFirst().isPresent();
+        return potentialMoves(gs).anyMatch(move -> Objects.equals(move.getTo(), piece.getPosition(gs)));
     }
 
     public Color getColor() {

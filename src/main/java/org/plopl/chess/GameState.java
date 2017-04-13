@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -90,6 +91,10 @@ public class GameState {
      */
     private Stream<GameState> successorsFromPiece(Piece piece) {
         return piece.validMoves(this).map(move -> new GameState(this, move));
+    }
+
+    public Predicate<Field> fieldHasPieceOfCurrentColor() {
+        return field -> getBoard().get(field).getColor() == getWhosTurn();
     }
 
     /**

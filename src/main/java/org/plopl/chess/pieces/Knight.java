@@ -34,6 +34,7 @@ public class Knight extends Piece {
         )
                 .map(currentPosition::add)
                 .filter(Field::isWithinBoard)
+                .filter(gs.fieldHasPieceOfCurrentColor().negate())  // don't allow to move onto our piece
                 .map(dest -> new Move(this.getId(), currentPosition, dest));
     }
 }

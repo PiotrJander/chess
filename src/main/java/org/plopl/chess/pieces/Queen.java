@@ -1,12 +1,11 @@
 package org.plopl.chess.pieces;
 
 import org.plopl.chess.Color;
-import org.plopl.chess.GameState;
-import org.plopl.chess.Move;
+import org.plopl.chess.Vector;
 
 import java.util.stream.Stream;
 
-public class Queen extends Piece{
+public class Queen extends VectorPiece {
     /**
      * `counter` must be incremented every time a new Piece is created.
      *
@@ -17,12 +16,21 @@ public class Queen extends Piece{
     }
 
     @Override
-    String letter() {
-        return "q";
+    protected Stream<Vector> vectors() {
+        return Stream.of(
+                new Vector(-1, -1),
+                new Vector(-1, 1),
+                new Vector(1, -1),
+                new Vector(1, 1),
+                new Vector(-1, 0),
+                new Vector(1, 0),
+                new Vector(0, -1),
+                new Vector(0, 1)
+        );
     }
 
     @Override
-    public Stream<Move> potentialMoves(GameState gs) {
-        return null;
+    String letter() {
+        return "q";
     }
 }

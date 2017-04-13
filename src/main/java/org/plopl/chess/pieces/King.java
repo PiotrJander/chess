@@ -29,12 +29,7 @@ public class King extends Piece {
         )
                 .map(currentPosition::add)  // stream of adjacent field
                 .filter(Field::isWithinBoard)  // only keep fields within the board
-                .filter(field -> {
-                    Piece pieceOnField = gs.getBoard().get(field);
-                    return
-                            pieceOnField == null // empty field
-                                    || pieceOnField.getColor() == gs.getWhosTurn().other();  // enemy piece on field
-                })
+                .filter(gs.fieldHasPieceOfCurrentColor().negate())  // don't allow to move onto our piece
                 .map(dest -> new Move(this.getId(), currentPosition, dest));
     }
 }
