@@ -94,7 +94,7 @@ public class GameState {
     }
 
     public Predicate<Field> fieldHasPieceOfCurrentColor() {
-        return field -> getBoard().get(field).getColor() == getWhosTurn();
+        return field -> getBoard().get(field) != null && getBoard().get(field).getColor() == getWhosTurn();
     }
 
     /**

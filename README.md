@@ -12,6 +12,10 @@ To reload changes in the server
 ./gradlew distDocker && docker-compose up -d --build server
 ```
 
+To remote debug the Java server running in a Docker container, in IDEA go to
+`Run configuration > Add + > Remote`. Select port 8000. Now you can set breakpoints
+and start debugging remotely.
+
 ## Setup
 
 Make sure you have Node.js and NPM installed. Then follows these

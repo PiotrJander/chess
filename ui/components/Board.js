@@ -37,7 +37,7 @@ const Tile = ({i, j, piece, selectedPieceId, moves, board, clickTileAction}) => 
     const tileStyles = {
         ...styles.tile,
         backgroundColor: tileColor(i, j),
-        border: (piece && piece.id === selectedPieceId) || isMove([i, j], moves) ? "2px dotted" : "inherit"
+        border: (piece && piece.id === selectedPieceId) || isMove([i, j], moves) ? "4px solid #63D863" : "inherit"
     }
     return (
         <div style={tileStyles} onClick={() => clickTileAction(board, moves, selectedPieceId, [i, j])}>

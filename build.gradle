@@ -26,11 +26,8 @@ repositories {
 }
 
 mainClassName = "org.plopl.chess.Main"
+applicationDefaultJvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=n"]
 
-task nginxDocker(type: Docker) {
-    applicationName = "chess_server"
-    exposePort(9090)
-}
 
 dependencies {
     compile (
@@ -45,8 +42,3 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
-
-//task run(type: JavaExec) {
-//    main = "org.plopl.chess.Main"
-//    classpath = sourceSets.main.runtimeClasspath
-//}

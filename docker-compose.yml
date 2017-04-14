@@ -6,6 +6,7 @@ services:
     image: org.plopl/chess:1.0-SNAPSHOT
     ports:
       - "9090:9090"
+      - "8000:8000"
 
   ui:
     build: ./ui
