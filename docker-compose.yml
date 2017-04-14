@@ -10,8 +10,12 @@ services:
 
   ui:
     build: ./ui
-  #  volumes:
-  #  - ./ui:/app
+#    volumes:
+#     - ./ui:/app
+#    env_file:
+#      - ./ui-variables.env
+    environment:
+      - SERVER
     ports:
       - "3000:3000"
 #    network_mode: "host"

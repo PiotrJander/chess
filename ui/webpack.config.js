@@ -14,7 +14,10 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+        'process.env.SERVER': JSON.stringify(process.env.SERVER || 'localhost')
+    })
   ],
   module: {
     loaders: [

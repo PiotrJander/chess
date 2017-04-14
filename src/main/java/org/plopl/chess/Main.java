@@ -41,10 +41,11 @@ public class Main {
             gs = new GameState(gs, move);
             gs = gs.makeRandomMove();
             res.type("application/json");
+            Thread.sleep(1000);
             return mapper.writer().writeValueAsString(gs.makeServerMessage());
         });
 
-        get("/foo", (req, res) -> "Hello world!!!");
+        get("/bar", (req, res) -> "Hello world!!!");
     }
 
     private static void enableCORS(final String origin, final String methods, final String headers) {
