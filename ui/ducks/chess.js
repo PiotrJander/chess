@@ -70,7 +70,7 @@ const failNextMove = createAction(FAIL_NEXT_MOVE)
 export function newGameAction(): Function {
     return dispatch => {
         dispatch(requestNewGame())
-        return fetch('http://localhost:9090/new-game', {method: 'POST'})
+        return fetch('http://192.168.99.100:9090/new-game', {method: 'POST'})
         // return fetch('http://10.200.10.1:9090/new-game', {method: 'POST'})
             .then(response => response.json())
             .then(payload => dispatch(receiveNewGame(payload)))
@@ -102,7 +102,7 @@ export function nextMoveAction(selectedPieceId: number, [i, j]: Coor): Function 
     return dispatch => {
         dispatch(requestNextMove())
         return fetch(
-            'http://localhost:9090/next-move',
+            'http://192.168.99.100:9090/next-move',
             // 'http://10.200.10.1:9090/next-move',
             {
                 method: 'POST',
