@@ -23,6 +23,8 @@ I could tell you how to do it, but better use Linux instead – bum
 5. Do `docker-compose up`. Your UI should run on `localhost:3000`, or if using `Docker Toolbox`, on the port 3000
     of your `docker-machine ip`. The server will run on port `9090`.~~
 
+### Making changes
+
 To reload changes in the server
 
 ```
