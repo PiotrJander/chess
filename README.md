@@ -2,14 +2,26 @@
 
 ## UPDATE: running front end with Docker
 
-1. Install `Docker` if using Linux. Or `Docker for Mac`. Or `Docker for Windows` if using Windows 10 other than Home.
+### Linux, Mac, Windows 10 Pro
+
+1. Install `Docker` if using Linux. Or `Docker for Mac`. Or `Docker for Windows` if using Windows 10 Pro.
+2. Run Docker
+3. Do `./gradlew distDocker` to make the Docker image for the server. Running this for the first time will
+    take a while, as images need to be downloaded.
+4. Do `docker-compose up`. Your UI should run on `localhost:3000`. The server will run on port `9090`.
+
+### Windows 10 Home or older Windows: Docker Toolbox
+
+I could tell you how to do it, but better use Linux instead – bum
+
+1. ~~Install `Docker` if using Linux. Or `Docker for Mac`. Or `Docker for Windows` if using Windows 10 other than Home.
     Or `Docker Toolbox` if using Windows 10 Home or older Windows.
 2. Run Docker
 3. Do `./gradlew distDocker` to make the Docker image for the server.
 4. If using `Docker Toolbox`, set an environment variable: in Bash `export SERVER=$(docker-machine ip)`,
     on Windows something like `SET SERVER=value of docker-machine ip`
 5. Do `docker-compose up`. Your UI should run on `localhost:3000`, or if using `Docker Toolbox`, on the port 3000
-    of your `docker-machine ip`. The server will run on port `9090`.
+    of your `docker-machine ip`. The server will run on port `9090`.~~
 
 To reload changes in the server
 
