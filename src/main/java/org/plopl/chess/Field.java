@@ -25,6 +25,9 @@ public class Field extends Vector implements JsonSerializable {
     public static Stream<Field> allFields() {
         return IntStream.range(0, 8).boxed().flatMap(i -> IntStream.range(0, 8).mapToObj(j -> new Field(i, j)));
     }
+    public int getRow(){
+        return this.row;
+    }
 
     @Override
     public boolean equals(Object obj) {
